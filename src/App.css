@@ -1,0 +1,10 @@
+.x-cursor::after{
+    content: "";
+    position: absolute;
+    left: 6px;
+
+    background-color:red;
+    width: 4px;
+    height: 158px;
+    
+}
