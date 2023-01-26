@@ -21,12 +21,12 @@ function App() {
     <div className="flex justify-center h-96 items-center">
       <div
         ref={parentRef}
-        className=" relative w-52 h-52 border-black border rounded"
+        className=" relative w-80 h-80 border-black border rounded"
       >
-        <Marker  limit={parentRef.current?.clientWidth} />
-        <Marker limit={parentRef.current?.clientWidth} />
-        <Marker direction="verticle" limit={parentRef.current?.clientWidth} />
-        <Marker direction="verticle" limit={parentRef.current?.clientWidth} />
+        <Marker  limit={width} />
+        <Marker limit={width} />
+        <Marker direction="verticle" limit={height} />
+        <Marker direction="verticle" limit={height} />
       </div>
     </div>
   );

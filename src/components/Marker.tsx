@@ -48,7 +48,8 @@ const Marker: FC<{
       requestAnimationFrame(() => {
         const clientPos = getClientPosition(event);
         const currentX = square + clientPos - start;
-        let newLimitX = limit || 0;
+        let newLimitX =
+          direction === "horizontal" ? limit || 0 : (limit || 0) - 32 / 2;
         let newLimitY = direction !== "horizontal" ? 32 / 2 : 0;
 
         if (currentX >= 0 - newLimitY && currentX <= newLimitX) {
@@ -58,13 +59,7 @@ const Marker: FC<{
       });
     }
   };
-  console.log({
-    limit,
-    startPos,
-    squareX: square,
-    isDragging,
-    startX: start,
-  });
+
   return (
     <div
       style={{
@@ -83,7 +78,6 @@ const Marker: FC<{
         direction === "horizontal" ? "x-cursor" : "y-cursor"
       } `}
     >
-   
       <span
         className={`${
           direction === "horizontal" ? "w-8 h-6" : "w-6 h-8"
@@ -103,7 +97,7 @@ export default Marker;
 //   return (
 //     <span
 //       className={`
-//         "w-8 h-6" 
+//         "w-8 h-6"
 //       absolute text-white  text-center  bg-red-500`}
 //     >
 //       {children}
