@@ -1,10 +1,19 @@
 .x-cursor::after{
     content: "";
     position: absolute;
-    left: 6px;
-
-    background-color:red;
+    left: -2px;
+    z-index: -11;
+    background-color:rgb(239 68 68);
     width: 4px;
-    height: 158px;
+    height: 100%;
     
+}
+.y-cursor::after{
+    content: "";
+    position: absolute;
+    top: 13px;
+    z-index: -11;
+    background-color:rgb(239 68 68);
+    width: 100%;
+    height: 4px;
 }
