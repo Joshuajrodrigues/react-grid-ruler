@@ -6,14 +6,12 @@ const Marker: FC<{
   limit?: number;
   startPos?: number;
   direction?: Direction;
-  // horizontalHead?: ReactNode;
-  // verticleHead?: ReactNode;
+
 }> = ({
   limit,
   startPos = 0,
   direction = "horizontal",
-  // horizontalHead = <HorizontalHead />,
-  // verticleHead = <VerticleHead />,
+
 }) => {
   const [square, setSquare] = useState(startPos);
   const [isDragging, setIsDragging] = useState(false);
@@ -48,8 +46,7 @@ const Marker: FC<{
       requestAnimationFrame(() => {
         const clientPos = getClientPosition(event);
         const currentX = square + clientPos - start;
-        let newLimitX =
-          direction === "horizontal" ? limit || 0 : (limit || 0) - 32 / 2;
+        let newLimitX = direction === "horizontal"? limit || 0 : (limit || 0)-32/2;
         let newLimitY = direction !== "horizontal" ? 32 / 2 : 0;
 
         if (currentX >= 0 - newLimitY && currentX <= newLimitX) {
@@ -78,12 +75,13 @@ const Marker: FC<{
         direction === "horizontal" ? "x-cursor" : "y-cursor"
       } `}
     >
+   
       <span
         className={`${
-          direction === "horizontal" ? "w-8 h-6" : "w-6 h-8"
-        }  absolute text-white  text-center  bg-red-500`}
+          direction === "horizontal" ? "w-8 h-6 bg-blue-500" : "w-6 h-8 bg-red-500"
+        }  absolute text-white  text-center `}
       >
-        {direction === "horizontal" ? square : square + 16}
+      
       </span>
     </div>
   );
@@ -91,29 +89,3 @@ const Marker: FC<{
 
 export default Marker;
 
-// const HorizontalHead: FC<{
-//   children?: ReactNode;
-// }> = ({ children }) => {
-//   return (
-//     <span
-//       className={`
-//         "w-8 h-6"
-//       absolute text-white  text-center  bg-red-500`}
-//     >
-//       {children}
-//     </span>
-//   );
-// };
-// const VerticleHead: FC<{
-//   children?: ReactNode;
-// }> = ({ children }) => {
-//   return (
-//     <span
-//       className={`
-//       "w-6 h-8"
-//       absolute text-white  text-center bg-blue-500`}
-//     >
-//       {children}
-//     </span>
-//   );
-// };
